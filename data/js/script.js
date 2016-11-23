@@ -72,7 +72,9 @@ app.controller('home', function ($scope) {
 	//refreshing browsers
 	socket.on('refresh browsers',function(myid){
 		if($scope.my_id!=myid){
-	        FB.XFBML.parse(document.getElementById("comments"));
+			var commentsContainer = document.getElementById('commentWrapper');
+			commentsContainer.innerHTML = '<div class="fb-comments" data-href="http://softr.net/fiverr/mula78/" data-width="100%" data-numposts="5"></div>';
+	        FB.XFBML.parse(commentsContainer);
 	        console.log('refresh browsers', myid)
 		}
 	});
