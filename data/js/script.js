@@ -73,7 +73,7 @@ app.controller('home', function ($scope) {
 	socket.on('refresh browsers',function(myid){
 		if($scope.my_id!=myid){
 			var commentsContainer = document.getElementById('commentWrapper');
-			commentsContainer.innerHTML = '<div class="fb-comments" data-href="http://softr.net/fiverr/mula78/" data-width="100%" data-numposts="5"></div>';
+			commentsContainer.innerHTML = '<div class="fb-comments" id="comments" data-href="http://softr.net/fiverr/mula78/data/" data-width="700" data-numposts="25"></div>';
 	        FB.XFBML.parse(commentsContainer);
 	        console.log('refresh browsers', myid)
 		}
