@@ -20,6 +20,12 @@ var users=[];
 
 // This is auto initiated event when Client connects to Your Machien.  
 io.on('connection',function(socket){  
+    //Someone posted a comment, and then we are to refresh clients
+    socket.on('refresh browsers',function(users, myid){
+      //Sending th user Id and List of users
+      io.emit('refresh browsers', myid); 
+    });
+
     
     //Storing users into array as an object
     socket.on('user name',function(user_name){
