@@ -71,8 +71,10 @@ app.controller('home', function ($scope) {
 
 	//refreshing browsers
 	socket.on('refresh browsers',function(myid){
-
-        console.log('refresh browsers', myid)
+		if($scope.my_id!=myid){
+	        FB.XFBML.parse(document.getElementById("comments"));
+	        console.log('refresh browsers', myid)
+		}
 	});
 
 
@@ -82,7 +84,7 @@ app.controller('home', function ($scope) {
             console.log("comment_callback");
             console.log(response);
             console.log($scope.user_show)
-			socket.emit('refresh browsers',$scope.user_show, $scope.my_id); // sending user name to the server
+			socket.emit('refresh browsers',$scope.user_show, $scope.my_id); // sending info to the server
         }
         FB.Event.subscribe('comment.create', comment_callback);
         FB.Event.subscribe('comment.remove', comment_callback);
