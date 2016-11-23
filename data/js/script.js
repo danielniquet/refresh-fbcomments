@@ -1,10 +1,19 @@
 var app = angular.module('home',[]);
 
 app.controller('home', function ($scope) {
-
+	window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '1261990543879838',
+            xfbml      : true,
+            status     : true,
+            version    : 'v2.8'
+        });
+    };
+    
 	var socket = io();
 	var user_name='qwerty'
 	$scope.var=null;
+
 
 
 
