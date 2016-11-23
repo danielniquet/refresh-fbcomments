@@ -13,7 +13,7 @@
   <body>
     <div id="fb-root"></div>
     <h4>Leave a comment</h4>
-    <div class="fb-comments" id="comments" data-href="https://mula78.herokuapp.com/" data-num-posts="10" data-width="480"></div>
+    <div class="fb-comments" id="comments" data-href="https://mula78.herokuapp.com/" data-width="500" data-numposts="25"></div>
     <script>
         window.fbAsyncInit = function() {
             FB.init({
@@ -24,12 +24,12 @@
             });
         };
 
-        (function(d, s, id){
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {return;}
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
+        (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+          fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
 
@@ -41,7 +41,7 @@
         }
         FB.Event.subscribe('comment.create', comment_callback);
         FB.Event.subscribe('comment.remove', comment_callback);
-        // FB.XFBML.parse(document.getElementById("comments"));
+        FB.XFBML.parse(document.getElementById("comments"));
 
     });
     </script>
