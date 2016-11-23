@@ -70,16 +70,18 @@ app.controller('home', function ($scope) {
 	});
 
 
-	console.log('load event')
+	$(window).load(function() {
+      console.log('load event')
         var comment_callback = function(response) {
             console.log("comment_callback");
             console.log(response);
-            console.log($scope.user_show)
+            console.log()
         }
         FB.Event.subscribe('comment.create', comment_callback);
         FB.Event.subscribe('comment.remove', comment_callback);
         FB.XFBML.parse(document.getElementById("comments"));
 
+    });
 
 
 });
