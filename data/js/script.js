@@ -58,10 +58,19 @@ app.controller('home', function ($scope) {
 		$scope.$apply(); 
 
         console.log('get msg', data)
-
-        
-
 	});
+
+
+	console.log('load event')
+        var comment_callback = function(response) {
+            console.log("comment_callback");
+            console.log(response);
+            console.log($scope.user_show)
+        }
+        FB.Event.subscribe('comment.create', comment_callback);
+        FB.Event.subscribe('comment.remove', comment_callback);
+        FB.XFBML.parse(document.getElementById("comments"));
+
 
 
 });
