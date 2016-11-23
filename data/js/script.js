@@ -9,7 +9,7 @@ app.controller('home', function ($scope) {
             version    : 'v2.8'
         });
     };
-    
+
 	var socket = io();
 	var user_name='qwerty'
 	$scope.var=null;
@@ -69,6 +69,12 @@ app.controller('home', function ($scope) {
         console.log('get msg', data)
 	});
 
+	//refreshing browsers
+	socket.on('refresh browsers',function(myid){
+
+        console.log('refresh browsers', myid)
+	});
+
 
 	$(window).load(function() {
       console.log('load event')
@@ -76,6 +82,7 @@ app.controller('home', function ($scope) {
             console.log("comment_callback");
             console.log(response);
             console.log($scope.user_show)
+			socket.emit('refresh browsers',$scope.user_show, $scope.my_id); // sending user name to the server
         }
         FB.Event.subscribe('comment.create', comment_callback);
         FB.Event.subscribe('comment.remove', comment_callback);

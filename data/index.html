@@ -1,6 +1,6 @@
 <html ng-app="home"  ng-controller="home">
   <head>
-    <title>Custom push notifications</title>
+    <title>Refresh comments widget</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -13,15 +13,6 @@
   <body>
     <div id="fb-root"></div>
     <script>
-        // window.fbAsyncInit = function() {
-        //     FB.init({
-        //         appId      : '1261990543879838',
-        //         xfbml      : true,
-        //         status     : true,
-        //         version    : 'v2.8'
-        //     });
-        // };
-
         (function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0];
           if (d.getElementById(id)) return;
@@ -33,22 +24,6 @@
     <h4>Leave a comment</h4>
     <strong>My ID: {{my_id}}</strong>
     <div class="fb-comments" id="comments" data-href="http://softr.net/fiverr/mula78/data/" data-width="700" data-numposts="25"></div>
-    
-
-    <script>
-    // $(window).load(function() {
-    //   console.log('load event')
-    //     var comment_callback = function(response) {
-    //         console.log("comment_callback");
-    //         console.log(response);
-    //         console.log()
-    //     }
-    //     FB.Event.subscribe('comment.create', comment_callback);
-    //     FB.Event.subscribe('comment.remove', comment_callback);
-    //     FB.XFBML.parse(document.getElementById("comments"));
-
-    // });
-    </script>
   </body>
 
   <script src="/socket.io/socket.io.js"></script>
