@@ -36,11 +36,6 @@ io.on('connection',function(socket){
       io.emit('user entrance',users,users[len].id); 
     });
 
-    //Sending message to Specific user
-    socket.on('send msg',function(data_server){
-      socket.broadcast.to(data_server.id).emit('get msg',{msg:data_server.msg,id:data_server.id,name:data_server.name});
-    });
-
     //Removig user when user left the chatroom
     socket.on('disconnect',function(){
       for(var i=0;i<users.length;i++){
