@@ -1,0 +1,52 @@
+<html ng-app="home"  ng-controller="home">
+  <head>
+    <title>Custom push notifications</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <div id="fb-root"></div>
+    <div class="fb-comments" id="comments" data-href="" data-num-posts="10" data-width="480"></div>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '348708885485923',
+                xfbml      : true,
+                status     : true,
+                version    : 'v2.8'
+            });
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <script>
+    $(window).load(function() {
+        var comment_callback = function(response) {
+            console.log("comment_callback");
+            console.log(response);
+        }
+        FB.Event.subscribe('comment.create', comment_callback);
+        FB.Event.subscribe('comment.remove', comment_callback);
+        FB.XFBML.parse(document.getElementById("comments"));
+
+    });
+    </script>
+  </body>
+
+  <!-- <script src="/socket.io/socket.io.js"></script>
+  <script src="js/angular.min.js"></script>
+  <script src="js/script.js"></script> -->
+</html>
