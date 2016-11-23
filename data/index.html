@@ -15,14 +15,14 @@
     <h4>Leave a comment</h4>
     <div class="fb-comments" id="comments" data-href="https://mula78.herokuapp.com/" data-width="700" data-numposts="25"></div>
     <script>
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId      : '1261990543879838',
-                xfbml      : true,
-                status     : true,
-                version    : 'v2.8'
-            });
-        };
+        // window.fbAsyncInit = function() {
+        //     FB.init({
+        //         appId      : '1261990543879838',
+        //         xfbml      : true,
+        //         status     : true,
+        //         version    : 'v2.8'
+        //     });
+        // };
 
         (function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0];
@@ -36,12 +36,12 @@
     <script>
     $(window).load(function() {
       console.log('load event')
-        var comment_callback = function(response) {
-            console.log("comment_callback");
-            console.log(response);
-        }
-        FB.Event.subscribe('comment.create', comment_callback);
-        FB.Event.subscribe('comment.remove', comment_callback);
+        // var comment_callback = function(response) {
+        //     console.log("comment_callback");
+        //     console.log(response);
+        // }
+        // FB.Event.subscribe('comment.create', comment_callback);
+        // FB.Event.subscribe('comment.remove', comment_callback);
         // FB.XFBML.parse(document.getElementById("comments"));
 
     });
