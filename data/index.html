@@ -13,7 +13,7 @@
   <body>
     <div id="fb-root"></div>
     <h4>Leave a comment</h4>
-    <div class="fb-comments" id="comments" data-href="" data-num-posts="10" data-width="480"></div>
+    <div class="fb-comments" id="comments" data-href="https://mula78.herokuapp.com/" data-num-posts="10" data-width="480"></div>
     <script>
         window.fbAsyncInit = function() {
             FB.init({
@@ -41,7 +41,7 @@
         }
         FB.Event.subscribe('comment.create', comment_callback);
         FB.Event.subscribe('comment.remove', comment_callback);
-        FB.XFBML.parse(document.getElementById("comments"));
+        // FB.XFBML.parse(document.getElementById("comments"));
 
     });
     </script>
